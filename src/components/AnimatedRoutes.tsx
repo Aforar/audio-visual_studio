@@ -20,7 +20,7 @@ const pageVariants = {
         y: 0,
         opacity: 1,
         transition: {
-            duration: 0.8,
+            duration: 0.3,
             ease: [0.77, 0, 0.175, 1] as any
         }
     },
@@ -28,7 +28,7 @@ const pageVariants = {
         y: direction > 0 ? '-100%' : '100%',
         opacity: 0,
         transition: {
-            duration: 0.8,
+            duration: 0.3,
             ease: [0.77, 0, 0.175, 1] as any
         }
     })
@@ -49,7 +49,7 @@ const AnimatedRoutes: React.FC = () => {
     }, [location.pathname]);
 
     return (
-        <AnimatePresence mode="wait" custom={direction}>
+        <AnimatePresence mode="popLayout" custom={direction}>
             <Routes location={location} key={location.pathname}>
                 <Route path="/" element={
                     <motion.div custom={direction} variants={pageVariants} initial="initial" animate="animate" exit="exit" style={{ width: '100%', height: '100%' }}>
