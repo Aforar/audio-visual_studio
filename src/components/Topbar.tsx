@@ -7,7 +7,6 @@ const navItems = [
     { num: '03', label: 'PROCESS', path: '/process' },
     { num: '04', label: 'SPACE', path: '/space' },
     { num: '05', label: 'CLIENTS', path: '/clients' },
-    { num: '06', label: 'CONTACT', path: '/contact' },
 ];
 
 const Topbar: React.FC = () => {
@@ -114,7 +113,7 @@ const Topbar: React.FC = () => {
                         e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
                     }}
                 >
-                    PRIVATE VIEW
+                    CONTACT
                 </button>
             </div>
         </nav>
