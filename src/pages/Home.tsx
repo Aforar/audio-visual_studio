@@ -9,61 +9,66 @@ const Home: React.FC = () => {
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
-            padding: '0 60px',
+            padding: window.innerWidth <= 768 ? '0 20px' : '0 60px',
             textAlign: 'center',
+            transition: 'padding 0.3s ease',
         }}>
             <div style={{
                 position: 'absolute',
-                top: '140px', // Adjusted for more air
-                left: '60px',
-                fontSize: '10px',
-                letterSpacing: '0.4em',
+                top: window.innerWidth <= 768 ? '100px' : '140px',
+                left: window.innerWidth <= 768 ? '20px' : '60px',
+                fontSize: window.innerWidth <= 768 ? '8px' : '10px',
+                letterSpacing: window.innerWidth <= 768 ? '0.2em' : '0.4em',
                 color: 'rgba(255, 255, 255, 0.4)',
                 textTransform: 'uppercase',
                 zIndex: 10,
+                transition: 'all 0.3s ease',
             }}>
                 EST. 2026 — [INDEPENDENT PRODUCTION]
             </div>
 
             <h1 style={{
-                fontSize: 'calc(24px + 3vw)',
+                fontSize: window.innerWidth <= 768 ? 'calc(20px + 2vw)' : 'calc(24px + 3vw)',
                 fontWeight: 300,
-                letterSpacing: '0.55em',
+                letterSpacing: window.innerWidth <= 768 ? '0.3em' : '0.55em',
                 lineHeight: '1.25',
                 color: '#fff',
                 textTransform: 'uppercase',
                 maxWidth: '1300px',
-                margin: '0 0 50px 0',
+                margin: window.innerWidth <= 768 ? '0 0 30px 0' : '0 0 50px 0',
                 fontFamily: "'Outfit', sans-serif",
+                transition: 'all 0.3s ease',
             }}>
                 WHERE AUDIO BECOMES ARCHITECTURE
             </h1>
 
             <p style={{
-                fontSize: '15px',
+                fontSize: window.innerWidth <= 768 ? '12px' : '15px',
                 fontWeight: 400,
-                letterSpacing: '0.25em',
+                letterSpacing: window.innerWidth <= 768 ? '0.15em' : '0.25em',
                 color: 'rgba(255, 255, 255, 0.9)',
                 maxWidth: '700px',
-                lineHeight: '2',
+                lineHeight: window.innerWidth <= 768 ? '1.8' : '2',
                 textTransform: 'uppercase',
+                transition: 'all 0.3s ease',
             }}>
                 A multidisciplinary studio crafting spatial audio and visual environments.
             </p>
 
-            <div style={{
+            <div className={window.innerWidth <= 768 ? "" : ""} style={{
                 position: 'absolute',
-                bottom: '80px',
-                left: '60px',
-                fontSize: '10px',
-                letterSpacing: '0.4em',
+                bottom: window.innerWidth <= 768 ? '40px' : '80px',
+                left: window.innerWidth <= 768 ? '20px' : '60px',
+                fontSize: window.innerWidth <= 768 ? '8px' : '10px',
+                letterSpacing: window.innerWidth <= 768 ? '0.2em' : '0.4em',
                 color: 'rgba(255, 255, 255, 0.35)',
                 textTransform: 'uppercase',
                 display: 'flex',
-                gap: '20px',
+                gap: window.innerWidth <= 768 ? '10px' : '20px',
                 flexDirection: 'column',
                 textAlign: 'left',
                 zIndex: 10,
+                transition: 'all 0.3s ease',
             }}>
                 <span style={{ fontWeight: 400 }}>
                     DEVELOPED BY <a
@@ -95,7 +100,7 @@ const Home: React.FC = () => {
                 </a>
             </div>
 
-            <div style={{
+            <div className="hide-on-mobile" style={{
                 position: 'absolute',
                 bottom: '80px',
                 right: '60px',

@@ -42,3 +42,33 @@ html.lenis {
 button {
     font-family: inherit;
 }
+
+/* --- Responsive Utilities --- */
+
+/* Mobile (up to 768px) */
+@media (max-width: 768px) {
+    .hide-on-mobile {
+        display: none !important;
+    }
+    
+    .stack-on-mobile {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    
+    .stack-on-mobile > * {
+        margin-bottom: 20px;
+    }
+    
+    .padding-mobile {
+        padding: 20px !important;
+    }
+}
+
+/* Tablet (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hide-on-tablet {
+        display: none !important;
+    }
+}

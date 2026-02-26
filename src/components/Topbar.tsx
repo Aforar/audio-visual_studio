@@ -23,32 +23,36 @@ const Topbar: React.FC = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            padding: '0 60px',
+            padding: window.innerWidth <= 768 ? '0 20px' : '0 60px',
             zIndex: 1000,
             background: 'transparent',
+            transition: 'padding 0.3s ease',
         }}>
             {/* 1) Left — Brand Presence */}
             <div
                 onClick={() => navigate('/')}
                 style={{
                     textTransform: 'uppercase',
-                    letterSpacing: '0.4em',
-                    fontSize: '16px',
+                    letterSpacing: window.innerWidth <= 768 ? '0.2em' : '0.4em',
+                    fontSize: window.innerWidth <= 768 ? '12px' : '16px',
                     fontWeight: 400,
                     color: '#fff',
                     userSelect: 'none',
                     fontFamily: "'Outfit', sans-serif",
                     cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                    whiteSpace: 'nowrap',
                 }}
             >
                 STUDIO AUDIO VISUAL
             </div>
 
             {/* 2) Center — Navigation Labels */}
-            <div style={{
+            <div className="hide-on-mobile" style={{
                 display: 'flex',
-                gap: '40px',
+                gap: window.innerWidth <= 1024 ? '20px' : '40px',
                 alignItems: 'center',
+                transition: 'gap 0.3s ease',
             }}>
                 {navItems.map((item, index) => {
                     const isActive = location.pathname === item.path;
@@ -95,7 +99,7 @@ const Topbar: React.FC = () => {
                         background: 'transparent',
                         border: '1px solid rgba(255, 255, 255, 0.2)',
                         color: '#fff',
-                        padding: '10px 24px',
+                        padding: window.innerWidth <= 768 ? '8px 16px' : '10px 24px',
                         fontSize: '10px',
                         letterSpacing: '0.2em',
                         cursor: 'pointer',
@@ -103,6 +107,7 @@ const Topbar: React.FC = () => {
                         outline: 'none',
                         textTransform: 'uppercase',
                         fontFamily: "'Inter', sans-serif",
+                        whiteSpace: 'nowrap',
                     }}
                     onMouseEnter={(e) => {
                         e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)';
