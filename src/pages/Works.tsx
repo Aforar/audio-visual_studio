@@ -1,4 +1,5 @@
 import React from 'react';
+import { useWindowSize } from '../hooks/useWindowSize';
 
 const projects = [
     {
@@ -47,22 +48,25 @@ const projects = [
 
 const Works: React.FC = () => {
     const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(null);
+    const { width } = useWindowSize();
+    const isMobile = width <= 768;
+    const isTablet = width <= 1024;
 
     return (
         <div style={{
             minHeight: '100vh',
             width: '100vw',
-            padding: window.innerWidth <= 768 ? '100px 20px 40px' : '120px 60px 60px',
+            padding: isMobile ? '100px 20px 40px' : '120px 60px 60px',
             display: 'flex',
             flexDirection: 'column',
             transition: 'padding 0.3s ease',
         }}>
             <h1 style={{
-                fontSize: window.innerWidth <= 768 ? '8px' : '11px',
-                letterSpacing: window.innerWidth <= 768 ? '0.2em' : '0.5em',
+                fontSize: isMobile ? '8px' : '11px',
+                letterSpacing: isMobile ? '0.2em' : '0.5em',
                 color: 'rgba(255, 255, 255, 0.35)',
                 textTransform: 'uppercase',
-                marginBottom: window.innerWidth <= 768 ? '25px' : '40px',
+                marginBottom: isMobile ? '25px' : '40px',
                 fontFamily: "'Outfit', sans-serif",
                 transition: 'all 0.3s ease',
             }}>
@@ -72,8 +76,8 @@ const Works: React.FC = () => {
             <div style={{
                 flexGrow: 1,
                 display: 'grid',
-                gridTemplateColumns: window.innerWidth <= 768 ? '1fr' : window.innerWidth <= 1024 ? 'repeat(2, 1fr)' : 'repeat(3, 1fr)',
-                gap: window.innerWidth <= 768 ? '15px' : '20px',
+                gridTemplateColumns: isMobile ? '1fr' : isTablet ? 'repeat(2, 1fr)' : 'repeat(3, 1fr)',
+                gap: isMobile ? '15px' : '20px',
                 paddingBottom: '20px',
                 transition: 'all 0.3s ease',
             }}>
@@ -85,8 +89,8 @@ const Works: React.FC = () => {
                             background: isHovered ? 'rgba(255, 255, 255, 0.03)' : 'rgba(255, 255, 255, 0.01)',
                             border: '1px solid',
                             borderColor: isHovered ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.03)',
-                            padding: window.innerWidth <= 768 ? '20px' : '30px',
-                            minHeight: window.innerWidth <= 768 ? '200px' : 'auto',
+                            padding: isMobile ? '20px' : '30px',
+                            minHeight: isMobile ? '200px' : 'auto',
                             display: 'flex',
                             flexDirection: 'column',
                             justifyContent: 'flex-end',
